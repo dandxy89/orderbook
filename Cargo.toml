@@ -1,0 +1,23 @@
+[package]
+name = "crypto_orderbook"
+version = "0.1.0"
+edition = "2021"
+
+[[bench]]
+name = "orderbook"
+harness = false
+
+[dependencies]
+rust_decimal = { version = "1.36.0" }
+rust_decimal_macros = { version = "1.36.0" }
+serde = { version = "1.0.215", optional = true, features = ["derive"] }
+
+[dev-dependencies]
+divan = { version = "0.1.15" }
+insta = { version = "1.41.1"}
+serde_json = { version = "1.0.132" }
+
+[features]
+serde = ["dep:serde"]
+
+

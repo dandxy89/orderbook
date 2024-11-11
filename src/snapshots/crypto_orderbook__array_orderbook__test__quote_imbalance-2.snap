@@ -1,0 +1,12 @@
+---
+source: src/array_orderbook.rs
+expression: metrics
+---
+OrderbookMetrics {
+    quote_imbalance: 0.4937343358395989974937343358,
+    mid_price: 100.50,
+    spread: 1,
+    spread_percentage: 0.9950248756218905472636815900,
+    price_impact_buy: 0.497512437810945273631840800,
+    price_impact_sell: 1.4925373134328358208955223900,
+}

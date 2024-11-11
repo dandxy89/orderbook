@@ -1,0 +1,59 @@
+---
+source: src/array_orderbook.rs
+expression: lob
+---
+ArrayOrderbook {
+    best_bid: Some(
+        Level {
+            price: 100.2,
+            size: 0.1,
+        },
+    ),
+    best_ask: None,
+    bids: Buffer {
+        buf: [
+            Level {
+                price: 100.2,
+                size: 0.1,
+            },
+            Level {
+                price: 100.1,
+                size: 1.1,
+            },
+            Level {
+                price: 100.0,
+                size: 1,
+            },
+        ],
+        limit: -79228162514264337593543950335,
+        len: 3,
+        cached_first: Some(
+            Level {
+                price: 100.2,
+                size: 0.1,
+            },
+        ),
+    },
+    asks: Buffer {
+        buf: [
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+        ],
+        limit: 79228162514264337593543950335,
+        len: 0,
+        cached_first: None,
+    },
+    ts: 10001,
+    sequence_id: 0,
+    has_moved: false,
+}

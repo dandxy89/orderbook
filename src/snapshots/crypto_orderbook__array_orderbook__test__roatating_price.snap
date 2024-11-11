@@ -1,0 +1,125 @@
+---
+source: src/array_orderbook.rs
+expression: ob
+---
+ArrayOrderbook {
+    best_bid: Some(
+        Level {
+            price: 999,
+            size: 100,
+        },
+    ),
+    best_ask: Some(
+        Level {
+            price: 1001,
+            size: 100,
+        },
+    ),
+    bids: Buffer {
+        buf: [
+            Level {
+                price: 999,
+                size: 100,
+            },
+            Level {
+                price: -79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: -79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: -79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: -79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: -79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: -79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: -79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: -79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: -79228162514264337593543950335,
+                size: 0,
+            },
+        ],
+        limit: -79228162514264337593543950335,
+        len: 1,
+        cached_first: Some(
+            Level {
+                price: 999,
+                size: 100,
+            },
+        ),
+    },
+    asks: Buffer {
+        buf: [
+            Level {
+                price: 1001,
+                size: 100,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+            Level {
+                price: 79228162514264337593543950335,
+                size: 0,
+            },
+        ],
+        limit: 79228162514264337593543950335,
+        len: 1,
+        cached_first: Some(
+            Level {
+                price: 1001,
+                size: 100,
+            },
+        ),
+    },
+    ts: 0,
+    sequence_id: 0,
+    has_moved: false,
+}

@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - "main"
+
+name: Release Please Action
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    if: "${{ !startsWith(github.event.head_commit.message, 'chore(main): release') }}"
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
