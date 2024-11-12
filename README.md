@@ -10,6 +10,10 @@ The goal is to attempt to understand what could make an Orderbook implementation
 - Does SIMD binary search and another tricks make much difference
 - `ReversedVec` vs `Buffer` do they make a difference
 
+## To the reader of this README
+
+Worth reading this <https://en.algorithmica.org/hpc/>
+
 ## Implementation Overview
 
 This project includes two implementations of an Orderbook so far:
