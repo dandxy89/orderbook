@@ -4,7 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [[bench]]
-name = "orderbook"
+name = "orderbook_decimal"
+harness = false
+
+[[bench]]
+name = "orderbook_fixed_decimal"
 harness = false
 
 [dependencies]
@@ -14,10 +18,8 @@ serde = { version = "1.0.215", optional = true, features = ["derive"] }
 
 [dev-dependencies]
 divan = { version = "0.1.15" }
-insta = { version = "1.41.1"}
+insta = { version = "1.41.1" }
 serde_json = { version = "1.0.132" }
 
 [features]
 serde = ["dep:serde"]
-
-

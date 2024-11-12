@@ -1,28 +1,28 @@
-use rust_decimal::Decimal;
+use crate::decimals::decimal_type::DecimalType;
 
 #[repr(C, align(16))]
 #[derive(Clone, Copy, Debug, Default)]
-pub struct Level {
-    pub price: Decimal,
-    pub size: Decimal,
+pub struct Level<V: DecimalType> {
+    pub price: V,
+    pub size: V,
 }
 
-impl Level {
+impl<V: DecimalType + PartialOrd> Level<V> {
     #[inline(always)]
     #[must_use]
-    pub const fn new(price: Decimal, size: Decimal) -> Self {
+    pub const fn new(price: V, size: V) -> Self {
         Self { price, size }
     }
 
     #[inline(always)]
     #[must_use]
     pub const fn bound(is_min: bool) -> Self {
-        Self { price: if is_min { Decimal::MIN } else { Decimal::MAX }, size: Decimal::ZERO }
+        Self { price: if is_min { V::MIN } else { V::MAX }, size: V::ZERO }
     }
 
     #[inline(always)]
     #[must_use]
     pub fn is_valid(&self) -> bool {
-        self.price > Decimal::ZERO
+        self.price > V::ZERO
     }
 }
