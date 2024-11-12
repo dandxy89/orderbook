@@ -11,6 +11,11 @@ This project includes two implementations of an Orderbook:
 1. Array-based Orderbook
 2. BTree-based Orderbook
 
+## Custom Decimal Type
+
+This project also include `FixedDecimal` which will replace `rust_decimal::Decimal`. Requires work to replace this!
+
+
 ## Benchmarks
 
 ```bash
