@@ -85,3 +85,10 @@ orderbook_fixed_decimal     fastest       │ slowest       │ median        �
 ├─ trades/array             368.9 µs      │ 4.035 ms      │ 371 µs        │ 432.3 µs      │ 100     │ 100
 ╰─ trades/btree             462.3 µs      │ 1.376 ms      │ 462.8 µs      │ 510.5 µs      │ 100     │ 100
 ```
+
+### Extras
+
+```bash
+cargo test --all-features
+cargo bench --all-features
+```

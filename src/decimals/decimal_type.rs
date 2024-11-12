@@ -7,6 +7,7 @@ pub trait DecimalType {
     const ONE_HUNDRED: Self;
 }
 
+#[cfg(feature = "rust_decimal")]
 impl DecimalType for rust_decimal::Decimal {
     const ZERO: Self = rust_decimal::Decimal::ZERO;
     const ONE: Self = rust_decimal::Decimal::ONE;

@@ -3,12 +3,10 @@ use std::{
     ops::{Add, Div, Mul, Sub},
 };
 
-use rust_decimal::Decimal;
-
 use crate::{
     books::interface::OrderBook,
     buffers::buffer::Buffer,
-    decimals::{decimal_type::DecimalType, fixed_decimal::FixedDecimal},
+    decimals::decimal_type::DecimalType,
     event::Event,
     event_kind::EventKind,
     level::Level,
@@ -137,7 +135,8 @@ where
     }
 }
 
-impl Default for ArrayOrderbook<300, Decimal> {
+#[cfg(feature = "rust_decimal")]
+impl Default for ArrayOrderbook<300, rust_decimal::Decimal> {
     #[inline]
     #[must_use]
     fn default() -> Self {
@@ -145,7 +144,8 @@ impl Default for ArrayOrderbook<300, Decimal> {
     }
 }
 
-impl Default for ArrayOrderbook<300, FixedDecimal> {
+#[cfg(feature = "fixed_decimal")]
+impl Default for ArrayOrderbook<300, crate::decimals::fixed_decimal::FixedDecimal> {
     #[inline]
     #[must_use]
     fn default() -> Self {
@@ -304,6 +304,7 @@ where
 }
 
 #[cfg(test)]
+#[cfg(feature = "rust_decimal")]
 mod test {
     use std::f64::consts::PI;
 
@@ -476,6 +477,7 @@ mod test {
 }
 
 #[cfg(test)]
+#[cfg(feature = "rust_decimal")]
 mod sequence_tests {
     use rust_decimal::Decimal;
     use rust_decimal_macros::dec;

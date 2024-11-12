@@ -130,7 +130,6 @@ where
             }
         }
 
-        // Final comparison
         unsafe {
             if self.get_unchecked(left).price == price {
                 Ok(left)
@@ -243,8 +242,8 @@ where
     }
 }
 
-// Add tests to verify correctness
 #[cfg(test)]
+#[cfg(feature = "fixed_decimal")]
 mod tests {
     use crate::decimals::fixed_decimal::FixedDecimal;
 

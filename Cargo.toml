@@ -12,8 +12,8 @@ name = "orderbook_fixed_decimal"
 harness = false
 
 [dependencies]
-rust_decimal = { version = "1.36.0" }
-rust_decimal_macros = { version = "1.36.0" }
+rust_decimal = { version = "1.36.0", optional = true }
+rust_decimal_macros = { version = "1.36.0", optional = true }
 serde = { version = "1.0.215", optional = true, features = ["derive"] }
 
 [dev-dependencies]
@@ -22,4 +22,6 @@ insta = { version = "1.41.1" }
 serde_json = { version = "1.0.132" }
 
 [features]
+fixed_decimal = []
+rust_decimal = ["dep:rust_decimal"]
 serde = ["dep:serde"]

@@ -5,11 +5,9 @@ use std::{
     ops::{Add, Div, Mul, Sub, SubAssign},
 };
 
-use rust_decimal::Decimal;
-
 use crate::{
     books::interface::OrderBook,
-    decimals::{decimal_type::DecimalType, fixed_decimal::FixedDecimal},
+    decimals::decimal_type::DecimalType,
     event::Event,
     event_kind::EventKind,
     level::Level,
@@ -119,14 +117,16 @@ where
     }
 }
 
-impl Default for BTreeOrderBook<Decimal> {
+#[cfg(feature = "rust_decimal")]
+impl Default for BTreeOrderBook<rust_decimal::Decimal> {
     #[inline]
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl Default for BTreeOrderBook<FixedDecimal> {
+#[cfg(feature = "fixed_decimal")]
+impl Default for BTreeOrderBook<crate::decimals::fixed_decimal::FixedDecimal> {
     #[inline]
     #[must_use]
     fn default() -> Self {
