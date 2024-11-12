@@ -1,19 +1,45 @@
-# Crypto Orderbook Implementation
+# Rust Orderbook Implementation
 
 This is my attempt at implementing an Orderbook for managing a Local Limit Order Book.
 
 All implementations are capable of handling; L2 Updates, Best Bid and Best Ask instants, and Trades.
 
-## Orderbook Implementation
+The goal is to attempt to understand what could make an Orderbook implementation fast so will include:
 
-This project includes two implementations of an Orderbook:
+- Custom DataType to manage working with f64, Decimal Types and my own Custom Types
+- Does SIMD binary search and another tricks make much difference
+- `ReversedVec` vs `Buffer` do they make a difference
+
+## Implementation Overview
+
+This project includes two implementations of an Orderbook so far:
 
 1. Array-based Orderbook
 2. BTree-based Orderbook
 
+and two implementations of Array buffering:
+
+1. `Buffer`
+2. `ReveredVec` - should, in theory, be faster
+
+and the intention is to support the following tasks:
+
+```rust
+pub enum EventKind {
+    /// Trade events
+    Trade,
+    /// Best Bid/Offer events
+    BBO,
+    /// Level 2 events (prices and sizes)
+    L2,
+}
+```
+
 ## Custom Decimal Type
 
-This project also include `FixedDecimal` which will replace `rust_decimal::Decimal`. Requires work to replace this!
+This project also include `FixedDecimal` which could be used to replace `rust_decimal::Decimal`.
+
+Also, with a little work, supports `serde`.
 
 ## Benchmarks
 
