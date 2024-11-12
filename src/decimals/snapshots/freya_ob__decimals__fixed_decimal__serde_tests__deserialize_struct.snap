@@ -1,0 +1,5 @@
+---
+source: src/decimals/fixed_decimal.rs
+expression: deserialized.x
+---
+232124

@@ -1,4 +1,4 @@
-use std::{cmp::Ordering, mem::MaybeUninit, ptr::addr_of_mut};
+use std::{cmp::Ordering, mem::MaybeUninit, ptr};
 
 use crate::{decimals::decimal_type::DecimalType, level::Level};
 
@@ -26,7 +26,7 @@ where
 
             // Initialize using ptr::write for better performance
             for i in 0..N {
-                addr_of_mut!((*buf.as_mut_ptr())[i]).write(bound);
+                ptr::addr_of_mut!((*buf.as_mut_ptr())[i]).write(bound);
             }
             buf.assume_init()
         };
@@ -146,7 +146,7 @@ where
 
         if insert_count > 0 {
             unsafe {
-                std::ptr::copy_nonoverlapping(levels.as_ptr(), self.buf.as_mut_ptr().add(self.len), insert_count);
+                ptr::copy_nonoverlapping(levels.as_ptr(), self.buf.as_mut_ptr().add(self.len), insert_count);
                 self.len += insert_count;
                 self.invalidate_cache();
             }
@@ -168,7 +168,7 @@ where
             }
 
             // Use ptr::copy for better performance
-            std::ptr::copy(self.buf.as_ptr().add(start + 1), self.buf.as_mut_ptr().add(start), self.len - start - 1);
+            ptr::copy(self.buf.as_ptr().add(start + 1), self.buf.as_mut_ptr().add(start), self.len - start - 1);
             *self.get_unchecked_mut(self.len - 1) = Level::bound(self.limit == V::MAX);
             self.len -= 1;
 
@@ -212,14 +212,14 @@ where
                 }
                 // Fast path for insert at beginning
                 0 => {
-                    std::ptr::copy(self.buf.as_ptr(), self.buf.as_mut_ptr().add(1), self.len);
+                    ptr::copy(self.buf.as_ptr(), self.buf.as_mut_ptr().add(1), self.len);
                     *self.get_unchecked_mut(0) = level;
                     self.len = (self.len + 1).min(N);
                     self.invalidate_cache();
                 }
                 // Regular insert
                 _ => {
-                    std::ptr::copy(self.buf.as_ptr().add(index), self.buf.as_mut_ptr().add(index + 1), self.len - index);
+                    ptr::copy(self.buf.as_ptr().add(index), self.buf.as_mut_ptr().add(index + 1), self.len - index);
                     *self.get_unchecked_mut(index) = level;
                     self.len = (self.len + 1).min(N);
                     if index == 0 {

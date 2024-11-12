@@ -1,4 +1,4 @@
-use std::{cmp::Ordering, mem::MaybeUninit, ptr::addr_of_mut};
+use std::{cmp::Ordering, mem::MaybeUninit, ptr};
 
 use crate::{decimals::decimal_type::DecimalType, level::Level};
 
@@ -23,7 +23,7 @@ where
             let mut buf = Box::new(MaybeUninit::<[Level<V>; N]>::uninit());
             let bound = Level::bound(is_bid);
             for i in 0..N {
-                addr_of_mut!((*buf.as_mut_ptr())[i]).write(bound);
+                ptr::addr_of_mut!((*buf.as_mut_ptr())[i]).write(bound);
             }
             buf.assume_init()
         };
@@ -96,7 +96,7 @@ where
         }
         // Use SIMD-friendly binary search for larger ranges
         if self.len >= 32 {
-            return self.simd_search(price, is_bid);
+            return self.branchless_binary_search(price, is_bid);
         }
         // Regular binary search for small ranges
         let mut left = 0;
@@ -119,7 +119,7 @@ where
     }
 
     #[inline(always)]
-    fn simd_search(&self, price: V, is_bid: bool) -> Result<usize, usize> {
+    fn branchless_binary_search(&self, price: V, is_bid: bool) -> Result<usize, usize> {
         let mut size = self.len;
         let mut left = 0;
 
@@ -135,7 +135,6 @@ where
             }
         }
 
-        // Final comparison
         unsafe {
             if self.get_unchecked(left).price == price {
                 Ok(left)
@@ -159,7 +158,7 @@ where
                 return;
             }
             // Use ptr::copy for better performance
-            std::ptr::copy(self.buf.as_ptr().add(start + 1), self.buf.as_mut_ptr().add(start), self.len - start - 1);
+            ptr::copy(self.buf.as_ptr().add(start + 1), self.buf.as_mut_ptr().add(start), self.len - start - 1);
             *self.get_unchecked_mut(self.len - 1) = Level::bound(self.limit == V::MIN);
             self.len -= 1;
 

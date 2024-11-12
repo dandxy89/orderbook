@@ -1,5 +1,5 @@
 [package]
-name = "crypto_orderbook"
+name = "freya_ob"
 version = "0.1.0"
 edition = "2021"
 
@@ -19,6 +19,7 @@ serde = { version = "1.0.215", optional = true, features = ["derive"] }
 [dev-dependencies]
 divan = { version = "0.1.15" }
 insta = { version = "1.41.1" }
+rand = { version = "0.8.5" }
 serde_json = { version = "1.0.132" }
 
 [features]

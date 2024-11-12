@@ -1,4 +1,7 @@
-use std::ops::{Add, Div, Mul, Sub};
+use std::{
+    iter::Sum,
+    ops::{Add, Div, Mul, Sub},
+};
 
 use crate::{decimals::decimal_type::DecimalType, level::Level};
 
@@ -24,7 +27,7 @@ pub struct OrderbookMetrics<V: DecimalType> {
 // Shared implementation for metric calculation
 pub trait MetricsCalculator<V>
 where
-    V: DecimalType + Sub<Output = V> + Add<Output = V> + Mul<Output = V> + Div<Output = V> + PartialOrd + std::iter::Sum + Copy,
+    V: DecimalType + Sub<Output = V> + Add<Output = V> + Mul<Output = V> + Div<Output = V> + PartialOrd + Sum + Copy,
 {
     fn calculate_metrics_internal(
         &self,

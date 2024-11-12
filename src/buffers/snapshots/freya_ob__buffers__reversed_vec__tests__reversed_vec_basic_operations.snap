@@ -1,0 +1,102 @@
+---
+source: src/buffers/reversed_vec.rs
+expression: "&buffer"
+---
+ReversedVec {
+    buf: [
+        Level {
+            price: FixedDecimal {
+                raw: 10000000000000,
+            },
+            size: FixedDecimal {
+                raw: 1000000000000,
+            },
+        },
+        Level {
+            price: FixedDecimal {
+                raw: 90000000000000,
+            },
+            size: FixedDecimal {
+                raw: 2000000000000,
+            },
+        },
+        Level {
+            price: FixedDecimal {
+                raw: 80000000000000,
+            },
+            size: FixedDecimal {
+                raw: 3000000000000,
+            },
+        },
+        Level {
+            price: FixedDecimal {
+                raw: 1000000000000000000,
+            },
+            size: FixedDecimal {
+                raw: 0,
+            },
+        },
+        Level {
+            price: FixedDecimal {
+                raw: 1000000000000000000,
+            },
+            size: FixedDecimal {
+                raw: 0,
+            },
+        },
+        Level {
+            price: FixedDecimal {
+                raw: 1000000000000000000,
+            },
+            size: FixedDecimal {
+                raw: 0,
+            },
+        },
+        Level {
+            price: FixedDecimal {
+                raw: 1000000000000000000,
+            },
+            size: FixedDecimal {
+                raw: 0,
+            },
+        },
+        Level {
+            price: FixedDecimal {
+                raw: 1000000000000000000,
+            },
+            size: FixedDecimal {
+                raw: 0,
+            },
+        },
+        Level {
+            price: FixedDecimal {
+                raw: 1000000000000000000,
+            },
+            size: FixedDecimal {
+                raw: 0,
+            },
+        },
+        Level {
+            price: FixedDecimal {
+                raw: 1000000000000000000,
+            },
+            size: FixedDecimal {
+                raw: 0,
+            },
+        },
+    ],
+    limit: FixedDecimal {
+        raw: 1000000000000000000,
+    },
+    len: 3,
+    cached_first: Some(
+        Level {
+            price: FixedDecimal {
+                raw: 10000000000000,
+            },
+            size: FixedDecimal {
+                raw: 1000000000000,
+            },
+        },
+    ),
+}
