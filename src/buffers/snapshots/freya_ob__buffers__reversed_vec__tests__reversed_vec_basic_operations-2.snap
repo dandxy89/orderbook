@@ -6,23 +6,23 @@ ReversedVec {
     buf: [
         Level {
             price: FixedDecimal {
+                raw: 100000000000000,
+            },
+            size: FixedDecimal {
                 raw: 10000000000000,
             },
+        },
+        Level {
+            price: FixedDecimal {
+                raw: 800000000000000,
+            },
             size: FixedDecimal {
-                raw: 1000000000000,
+                raw: 30000000000000,
             },
         },
         Level {
             price: FixedDecimal {
-                raw: 80000000000000,
-            },
-            size: FixedDecimal {
-                raw: 3000000000000,
-            },
-        },
-        Level {
-            price: FixedDecimal {
-                raw: -1000000000000000000,
+                raw: -9223372036854775808,
             },
             size: FixedDecimal {
                 raw: 0,
@@ -30,7 +30,7 @@ ReversedVec {
         },
         Level {
             price: FixedDecimal {
-                raw: 1000000000000000000,
+                raw: 9223372036854775807,
             },
             size: FixedDecimal {
                 raw: 0,
@@ -38,7 +38,7 @@ ReversedVec {
         },
         Level {
             price: FixedDecimal {
-                raw: 1000000000000000000,
+                raw: 9223372036854775807,
             },
             size: FixedDecimal {
                 raw: 0,
@@ -46,7 +46,7 @@ ReversedVec {
         },
         Level {
             price: FixedDecimal {
-                raw: 1000000000000000000,
+                raw: 9223372036854775807,
             },
             size: FixedDecimal {
                 raw: 0,
@@ -54,7 +54,7 @@ ReversedVec {
         },
         Level {
             price: FixedDecimal {
-                raw: 1000000000000000000,
+                raw: 9223372036854775807,
             },
             size: FixedDecimal {
                 raw: 0,
@@ -62,7 +62,7 @@ ReversedVec {
         },
         Level {
             price: FixedDecimal {
-                raw: 1000000000000000000,
+                raw: 9223372036854775807,
             },
             size: FixedDecimal {
                 raw: 0,
@@ -70,7 +70,7 @@ ReversedVec {
         },
         Level {
             price: FixedDecimal {
-                raw: 1000000000000000000,
+                raw: 9223372036854775807,
             },
             size: FixedDecimal {
                 raw: 0,
@@ -78,7 +78,7 @@ ReversedVec {
         },
         Level {
             price: FixedDecimal {
-                raw: 1000000000000000000,
+                raw: 9223372036854775807,
             },
             size: FixedDecimal {
                 raw: 0,
@@ -86,16 +86,16 @@ ReversedVec {
         },
     ],
     limit: FixedDecimal {
-        raw: 1000000000000000000,
+        raw: 9223372036854775807,
     },
     len: 2,
     cached_first: Some(
         Level {
             price: FixedDecimal {
-                raw: 10000000000000,
+                raw: 100000000000000,
             },
             size: FixedDecimal {
-                raw: 1000000000000,
+                raw: 10000000000000,
             },
         },
     ),

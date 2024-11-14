@@ -1,0 +1,7 @@
+---
+source: src/decimals/fixed_decimal.rs
+expression: total_value
+---
+FixedDecimal {
+    raw: 500000,
+}

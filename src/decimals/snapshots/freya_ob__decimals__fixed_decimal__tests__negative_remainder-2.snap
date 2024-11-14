@@ -1,0 +1,7 @@
+---
+source: src/decimals/fixed_decimal.rs
+expression: a % b
+---
+FixedDecimal {
+    raw: 15000000000000,
+}
